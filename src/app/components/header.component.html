@@ -1,0 +1,34 @@
+<header class="site-header">
+  <div class="container">
+
+    <!-- LOGO -->
+    <a href="#" class="logo">
+      <!-- Platzhalter für ein Bild-Logo -->
+      <!-- <img src="assets/img/logo.png" alt="DiggiAndi Web"> -->
+      diggiandi<span>Web</span>
+    </a>
+
+    <!-- BURGER-MENÜ BUTTON (für mobile Navigation) -->
+    <button class="burger" (click)="toggleMenu()" aria-label="Menü öffnen / schließen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- NAVIGATION -->
+    <nav [ngClass]="{ 'open': menuOpen }" class="main-nav">
+      <ul>
+        <li><a href="#home" (click)="closeMenu()">Home</a></li>
+        <li><a href="#offers" (click)="closeMenu()">Angebote</a></li>
+        <li><a href="#testimonials" (click)="closeMenu()">Kunden</a></li>
+        <li><a href="#contact" (click)="closeMenu()">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <!-- CTA BUTTON -->
+    <button class="cta-btn">
+      Jetzt anfragen
+    </button>
+
+  </div>
+</header>

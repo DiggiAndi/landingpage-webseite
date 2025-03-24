@@ -1,0 +1,89 @@
+@import '../../styles/variables';
+
+.offers {
+  background-color: $background-light;
+  padding: 6rem 2rem;
+  color: $text-dark;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: $primary-color;
+  }
+
+  .subtitle {
+    color: $neutral-color;
+    margin-bottom: 4rem;
+    font-size: 1.2rem;
+  }
+
+  /* GRID */
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  /* CARDS */
+  .offer-card {
+    background-color: $text-light;
+    color: $text-dark;
+    padding: 2rem;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: $transition-fast;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: $primary-color;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $highlight-color;
+      margin-bottom: 1.5rem;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+
+      li {
+        margin-bottom: 0.75rem;
+        color: $neutral-color;
+      }
+    }
+
+    .btn-offer {
+      background-color: $highlight-color;
+      color: $text-dark;
+      padding: 0.75rem 1.5rem;
+      border-radius: $border-radius;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: $transition-fast;
+
+      &:hover {
+        background-color: darken($highlight-color, 10%);
+      }
+    }
+  }
+}

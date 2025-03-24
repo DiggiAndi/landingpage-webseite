@@ -1,0 +1,16 @@
+// 🌈 Farbpalette
+$primary-color: #104547;        // Midnight green (Hauptfarbe - Header-Hintergrund)
+$secondary-color: #4B5358;      // Outer space (für Sektionen oder Footer)
+$highlight-color: #AF929D;      // Rose quartz (Buttons, CTA, Links)
+$background-light: #D2D6EF;     // Lavender (heller Hintergrund, Sektionen)
+$neutral-color: #727072;        // Dim gray (Text, Icons)
+
+// 🖌️ Textfarben
+$text-dark: #111111;            // Sehr dunkler Text
+$text-light: #f5f5f5;           // Heller Text (für dunkle Hintergründe)
+
+// ✅ Optionale weitere Variablen
+$font-primary: 'Inter', sans-serif;
+$border-radius: 8px;
+$transition-fast: all 0.3s ease;
+$text-secondary: $neutral-color; // 👈 Hier fügst du es hinzu!

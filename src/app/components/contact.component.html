@@ -1,0 +1,169 @@
+<section class="contact" id="contact">
+  <div class="container">
+
+    <!-- Titel -->
+    <h2>Schreibe mir eine Nachricht</h2>
+    <p class="subtitle">Ich melde mich schnellstmöglich zurück!</p>
+
+    <div class="contact-content">
+
+      <!-- Kontaktinfos -->
+      <div class="contact-info">
+        <p><strong>Dein Ansprechpartner:</strong> Andreas Müller</p>
+
+        <p>
+          <strong>E-Mail:</strong>
+          <a href="mailto:info@diggi-andi.com"> info&#64;diggi-andi.com</a>
+        </p>
+
+        <p>
+          <strong>Telefon:</strong>
+          <a href="tel:+491702670278"> 0170 2670278</a>
+        </p>
+
+        <p>
+          <strong>Homepage:</strong>
+          <a href="https://diggi-andi.com/"> diggi-andi.com</a>
+        </p>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+          <!-- 🔧 Platzhalter für deine Icons -->
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/deinprofil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <!-- Icon- oder Bild-Platzhalter -->
+            <img src="assets/icons/linkedin.png" alt="LinkedIn" />
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/deinprofil" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img src="assets/icons/facebook.png" alt="Facebook" />
+          </a>
+
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@deinprofil" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <img src="assets/icons/youtube.png" alt="YouTube" />
+          </a>
+
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@deinprofil" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <img src="assets/icons/tiktok.png" alt="TikTok" />
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/deinprofil" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="assets/icons/instagram.png" alt="Instagram" />
+          </a>
+
+          <!-- Xing -->
+          <a href="https://www.xing.com/profile/deinprofil" target="_blank" rel="noopener noreferrer" aria-label="Xing">
+            <img src="assets/icons/xing.png" alt="Xing" />
+          </a>
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/491702670278" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <img src="assets/icons/whatsapp.png" alt="WhatsApp" />
+          </a>
+        </div>
+
+        <!-- WhatsApp Kontakt-Info -->
+        <div class="whatsapp-contact">
+          <p>Oder schreibe mir direkt auf <strong>WhatsApp</strong>:</p>
+          <a href="https://wa.me/491702670278" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+            📱 Nachricht über WhatsApp an mich senden
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Formular -->
+      <form
+        (ngSubmit)="sendEmail($event)"
+        #contactForm="ngForm"
+        class="contact-form"
+        novalidate
+      >
+
+        <!-- Name -->
+        <label for="name">Name *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="formData.name"
+          required
+          minlength="2"
+          #name="ngModel"
+          placeholder="Dein Name"
+        />
+        <div class="error" *ngIf="name.invalid && (name.dirty || name.touched)">
+          <small *ngIf="name.errors?.['required']">Bitte gib deinen Namen ein.</small>
+          <small *ngIf="name.errors?.['minlength']">Mindestens 2 Zeichen.</small>
+        </div>
+
+        <!-- E-Mail -->
+        <label for="email">E-Mail *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="formData.email"
+          required
+          email
+          #email="ngModel"
+          placeholder="dein@email.de"
+        />
+        <div class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <small *ngIf="email.errors?.['required']">Bitte gib deine E-Mail ein.</small>
+          <small *ngIf="email.errors?.['email']">Gib eine gültige E-Mail ein.</small>
+        </div>
+
+        <!-- Nachricht -->
+        <label for="message">Nachricht *</label>
+        <textarea
+          id="message"
+          name="message"
+          [(ngModel)]="formData.message"
+          required
+          minlength="10"
+          #message="ngModel"
+          placeholder="Deine Nachricht"
+        ></textarea>
+        <div class="error" *ngIf="message.invalid && (message.dirty || message.touched)">
+          <small *ngIf="message.errors?.['required']">Bitte gib eine Nachricht ein.</small>
+          <small *ngIf="message.errors?.['minlength']">Mindestens 10 Zeichen.</small>
+        </div>
+
+        <!-- Datenschutzhinweis -->
+        <p class="privacy-note">
+          Wir verwenden Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.
+          Weitere Informationen finden Sie in unserer
+          <a routerLink="/datenschutz" target="_blank">Datenschutzerklärung</a>.
+        </p>
+
+        <!-- Absenden Button -->
+        <button
+          type="submit"
+          class="cta-btn"
+          [disabled]="isLoading || contactForm.invalid"
+        >
+          <span *ngIf="isLoading" class="spinner"></span>
+          <span *ngIf="!isLoading">Absenden</span>
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Snackbar Feedback -->
+    <div
+      class="snackbar"
+      *ngIf="showSnackbarFlag"
+      [ngClass]="snackbarType"
+      role="alert"
+    >
+      <span>{{ snackbarMessage }}</span>
+      <button (click)="closeSnackbar()" aria-label="Snackbar schließen">×</button>
+    </div>
+
+  </div>
+</section>

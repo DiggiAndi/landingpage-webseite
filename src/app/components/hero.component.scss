@@ -1,0 +1,72 @@
+@import '../../styles/variables';
+
+.hero {
+  padding: 6rem 2rem;
+  background-color: $background-light;
+  color: $text-dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 4rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  /* === TEXT === */
+  .hero-text {
+    flex: 1;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: $primary-color;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: $neutral-color;
+    }
+
+    .cta-btn {
+      background-color: $highlight-color;
+      color: $text-dark;
+      padding: 1rem 2rem;
+      font-weight: bold;
+      border-radius: $border-radius;
+      border: none;
+      cursor: pointer;
+      transition: $transition-fast;
+
+      &:hover {
+        background-color: darken($highlight-color, 10%);
+      }
+    }
+  }
+
+  /* === IMAGE === */
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: $border-radius;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+

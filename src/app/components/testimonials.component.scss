@@ -1,0 +1,72 @@
+@import '../../styles/variables';
+
+.testimonials {
+  background-color: $secondary-color;
+  color: $text-light;
+  padding: 6rem 2rem;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: $background-light;
+  }
+
+  .subtitle {
+    color: $highlight-color;
+    margin-bottom: 4rem;
+    font-size: 1.2rem;
+  }
+
+  /* GRID */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  /* TESTIMONIAL CARD */
+  .testimonial-card {
+    background-color: $primary-color;
+    border-radius: $border-radius;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: $transition-fast;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      margin-bottom: 0.25rem;
+      color: $text-light;
+      font-size: 1.2rem;
+    }
+
+    .company {
+      font-size: 0.9rem;
+      color: $highlight-color;
+      margin-bottom: 1.5rem;
+    }
+
+    .feedback {
+      font-size: 1rem;
+      color: $text-light;
+      line-height: 1.6;
+    }
+  }
+}
